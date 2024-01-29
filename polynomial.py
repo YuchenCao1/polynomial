@@ -27,10 +27,10 @@ class Mul:
     
     def __repr__(self):
         if isinstance(self.p1, Add) or isinstance(self.p1, Sub):
-            if isinstance(self.p2, Add) or isinstance(self.p1, Sub):
+            if isinstance(self.p2, Add) or isinstance(self.p2, Sub):
                  return "( " + repr(self.p1) + " ) * ( " + repr(self.p2) + " )"
             return "( " + repr(self.p1) + " ) * " + repr(self.p2)
-        if isinstance(self.p2, Add) or isinstance(self.p1, Sub):
+        if isinstance(self.p2, Add) or isinstance(self.p2, Sub):
             return repr(self.p1) + " * ( " + repr(self.p2) + " )"
         return repr(self.p1) + " * " + repr(self.p2)
 
@@ -49,12 +49,12 @@ class Div:
     
     def __repr__(self):
         if isinstance(self.p1, Add) or isinstance(self.p1, Sub):
-            if isinstance(self.p2, Add) or isinstance(self.p1, Sub):
+            if isinstance(self.p2, Add) or isinstance(self.p2, Sub):
                  return "( " + repr(self.p1) + " ) / ( " + repr(self.p2) + " )"
             return "( " + repr(self.p1) + " ) / " + repr(self.p2)
-        if isinstance(self.p2, Add) or isinstance(self.p1, Sub):
+        if isinstance(self.p2, Add) or isinstance(self.p2, Sub):
             return repr(self.p1) + " / ( " + repr(self.p2) + " )"
         return repr(self.p1) + " / " + repr(self.p2)
 
-poly = Mul( Sub( Int(4), Int(3)), Add( X(), Div( Int(1), Sub( Mul(X(), X()), Int(1)))))
+poly = Div( Sub( Int(4), Int(3)), Add( X(), Mul( Int(1), Sub( Mul(X(), X()), Int(1)))))
 print(poly)
